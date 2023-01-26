@@ -30,11 +30,20 @@ from .form import SignupForm
 #                                  "Somethingwent wrong ")
 #             form = UserCreationForm()
 #     return render(request,'index.html',{'form':form})
+def Logout(request):
+    logout(request)
+    return redirect("/")
 
-
+from django.contrib.auth.decorators import login_required
+@login_required(login_url='/')
 def Home(request):
-    return render(request,'home.html')
-def index(request):
+    if request.user.is_authenticated:
+        return render(request,'home.html')
+    return redirect('login') 
+    
+def signup(request):
+    if request.user.is_authenticated:
+        return redirect('home') 
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
@@ -46,7 +55,7 @@ def index(request):
             
             messages.add_message(request, messages.SUCCESS,
                                  "Logged in successfull ")
-            return redirect('/login/')
+            return redirect('/')
            
            
         
@@ -55,10 +64,12 @@ def index(request):
 
     else:
         form = SignupForm()
-    return render(request, 'index.html', {'form': form},{})
+    return render(request, 'index.html', {'form': form})
 
 
 def Login(request):
+    if request.user.is_authenticated:
+        return redirect('home') 
     if request.method=='POST':
          username = request.POST['username']
          password = request.POST['password']

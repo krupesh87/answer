@@ -11,9 +11,11 @@
 </head>
 <body>
    
+    {% if user.is_authenticated %}
     <div class="container fs-1  mt-5 text-center dflex justify-content-center w-50">
+        
         <div class="mb-3">
-            <label for="formFile" class="form-label">Image</label>
+            <label for="formFile" class="form-label text-center">Image</label>
             <input class="form-control" type="file" id="formFile">
           </div>
 
@@ -30,8 +32,14 @@
           color:white;
           font-size:18px;" class="sign" value="Submit">
           </form>
+
+          <a href="logout" class="btn w-25 mt-2 dflex justify-content-start  btn-success " style="float: left;">Logout</a> 
     </div>
 
+{% else %}
+    <a href="/">login</a>
+{% endif %}
+  
 
     
 </body>
