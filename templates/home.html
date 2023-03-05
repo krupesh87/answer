@@ -1,46 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-</head>
-<body>
-   
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     {% if user.is_authenticated %}
-    <div class="container fs-1  mt-5 text-center dflex justify-content-center w-50">
-        
-        <div class="mb-3">
-            <label for="formFile" class="form-label text-center">Image</label>
-            <input class="form-control" type="file" id="formFile">
+    <div class="container text-center dflex justify-content-center">
+        {% if messages %} {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>Message</strong> {{message}} 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-
-          <form method="POST">
-
-          <label> Question</label>
-          <p></p>
-          <textarea type="text" class="form-control"></textarea>
-          <input type="submit" class=""rounded style="width:320px;
-          height:35px;
-          margin-top:20px;
-          border:none;
-          background-color:#0078AA;
-          color:white;
-          font-size:18px;" class="sign" value="Submit">
-          </form>
-
-          <a href="logout" class="btn w-25 mt-2 dflex justify-content-start  btn-success " style="float: left;">Logout</a> 
+      
+        {% endfor %} {% endif %}
     </div>
+    <div class="container  mt-5  dflex justify-content-center">
+       
+      <form method="POST">
+        {% csrf_token %}
+        {% if data %}
+        <div class="mb-3 row">
+         
+          
+          <div class="col-sm-8 mx-5 mt-4">
+            <label>{{data.question1}}</label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="file" accept="image/*"  name="plantsimage" class="form-control" id="FormControl2">
+          </div>
+        </div>
 
-{% else %}
-    <a href="/">login</a>
-{% endif %}
-  
+   
+
+        <div class="mb-3 row">
+        
+          <div class="col mx-5 mt-4">
+            <input type="text" name="answer1" placeholder="Answer " name="answer1" class="form-control" id="inputPassword" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <label>{{data.question2}}</label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="file" accept="image/*"  name="plantsimage1" class="form-control" id="FormControl2">
+          </div>
+        </div>
+
+   
+
+        <div class="mb-3 row">
+          
+          <div class="col mx-5 mt-4">
+            <input type="text" name="answer2"  placeholder="Answer " class="form-control" id="inputPassword" />
+          </div>
+        </div>
+        
+        <div class="mb-3 row">
+        
+          <div class="col mx-5 mt-4">
+            <label>{{data.question3}}</label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="file" accept="image/*"  name="plantsimage2" class="form-control" id="FormControl2">
+          </div>
+        </div>
+
+
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="text" name="answer3"  placeholder="Answer " class="form-control" id="inputPassword" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <label>{{data.question4}}</label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="file" accept="image/*"  name="plantsimage3" class="form-control" id="FormControl2">
+          </div>
+        </div>
 
     
-</body>
+
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="text" name="answer4"  placeholder="Answer " class="form-control" id="inputPassword" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+
+          <div class="col mx-5 mt-4">
+            <label>{{data.question5}}</label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="file" accept="image/*"  name="plantsimage4" class="form-control" id="FormControl2">
+          </div>
+        </div>
+
+   
+
+        <div class="mb-3 row">
+         
+          <div class="col mx-5 mt-4">
+            <input type="text" name="answer5"  placeholder="Answer " class="form-control" id="inputPassword" />
+          </div>
+        </div>
+
+        <input
+          type="submit"
+          class=" mx-5"
+          rounded
+          style="
+            width: 320px;
+            height: 35px;
+            margin-top: 20px;
+            border: none;
+            background-color: #0078aa;
+            color: white;
+            font-size: 18px;
+          "
+          class="sign"
+          value="Submit"
+        />
+        {% endif %}
+      </form>
+
+      <a
+        href="logout"
+        class="btn w-25  mx-5 mt-2 dflex justify-content-start btn-success"
+        style="
+          width: 320px;
+          height: 35px;
+          margin-top: 20px;
+          border: none;
+          margin-bottom: 12px;
+        
+          color: white;
+          font-size: 18px;
+        "
+        >Logout</a
+      >
+    </div>
+
+    {% else %}
+    <a href="/">login</a>
+    {% endif %}
+  </body>
 </html>
