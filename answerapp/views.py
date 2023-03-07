@@ -24,9 +24,10 @@ def Home(request):
             dplantsimage2 = request.POST.get('plantsimage2')
             dplantsimage3 = request.POST.get('plantsimage3')
             dplantsimage4 = request.POST.get('plantsimage4')
+            
         
             text = pytesseract.image_to_string(dplantsimage )   
-            print(text)    
+            print("hii",text)    
     
             answer1=request.POST.get('answer1')
             answer2=request.POST.get('answer2')
