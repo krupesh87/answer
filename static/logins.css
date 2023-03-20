@@ -1,0 +1,64 @@
+body
+{
+background-image:url('trek.jpg');
+background-size:cover;
+font-family:'Roboto',sans-serif;
+padding:100px;
+margin:0;
+}
+.login-box
+{
+width:360px;
+height:320px;
+margin:auto;
+border-radius:3px;
+background-color:white;
+}
+h1
+{
+text-align:center;
+padding-top:15px;
+}
+form
+{
+width:300px;
+margin-left:20px;
+}
+form label
+{
+display:flex;
+margin-top:20px;
+font-size:18px;
+}
+form input
+{
+width:100%;
+padding:7px;
+border:none;
+border:1px solid gray;
+border-radius:6px;
+outline:none;
+}
+
+.sign
+{
+width:320px;
+height:35px;
+margin-top:20px;
+border:none;
+background-color:#0078AA;
+color:white;
+font-size:18px;
+}
+
+ p {
+    
+    text-align: center;
+    color: rgb(7, 2, 2);
+    font-size: 15px;
+
+    
+ }
+ p a {
+    color: #3AB4F2;
+ }
