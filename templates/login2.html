@@ -12,40 +12,53 @@
     <title>Login page</title>
     <link rel="stylesheet" href="/static/logins.css">
     <style>
-         p {
-    padding-top: 40px;
-    text-align: center;
-    color: rgb(7, 2, 2);
-    font-size: 15px;
-    margin-top: -10px;
-}
- p a {
-    color: #3AB4F2;
- }
+        a{
+            text-decoration: none;
+            color: azure;
+        }
+        p {
+            padding-top: 40px;
+            text-align: center;
+            color: rgb(254, 254, 254);
+            font-size: 15px;
+            margin-top: 267px;
+            
+        }
+       
+       
+
+        p a {
+            color: #6034f3;
+        }
+
         body {
-            background-image: url('trek.jpg');
+            /* background-image: url('../static/background.jpg'); */
+         
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            background-size: cover;
         }
     </style>
 </head>
 
 <body>
-    
+
     <div class="login-box">
         <h1>Login</h1>
         {% if messages %} {% for message in messages %}
         <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-            <strong>Message</strong> {{message}} 
+            <strong>Message</strong> {{message}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-      
+        </div>
+
         {% endfor %} {% endif %}
-          
+
         <form method=POST>
             {% csrf_token %}
             <label>Username</label>
-            <input type="text" name="username" placeholder="">
+            <input type="text" name="username" placeholder="Username">
             <label>Password</label>
-            <input type="password" name="password" placeholder="">
+            <input type="password" name="password" placeholder="Password">
             <br>
             <br>
             <a href="/reset_password/" align="left">Forgot Password?</a>
@@ -53,11 +66,11 @@
           height:35px;
           margin-top:20px;
           border:none;
-          background-color:#0078AA;
+          background-color:#68fe77;
           color:white;
           font-size:18px;" class="sign" value="Sign In">
         </form>
-        <p >Don't have an Account ?<a href="/signup" align="center">Create New Account</a></p>
+        <p>Don't have an Account ?<a href="/signup" align="center">Create New Account</a></p>
     </div>
     </div>
 </body>
