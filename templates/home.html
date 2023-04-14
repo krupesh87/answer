@@ -36,6 +36,9 @@
   </div>
   <div class="container  mt-5  dflex justify-content-center">
 
+    
+
+
     <form method="POST">
       {% csrf_token %}
       {% if data %}
@@ -144,7 +147,6 @@
           <textarea name="answer5" rows="10" placeholder="Answer" class="form-control">{{text5}}</textarea>
         </div>
       </div>
-
 
 
 
@@ -294,7 +296,38 @@
           " class="sign" value="Generate OCR Text" />
       {% endif %}
     </form>
-
+    <table class="table mx-5 mt-2">
+      <thead>
+        <tr>
+          <th scope="col">Q1</th>
+          <th scope="col">Q2</th>
+          <th scope="col">Q3</th>
+          <th scope="col">Q4</th>
+          <th scope="col">Q5</th>
+          <th scope="col">Q6</th>
+          <th scope="col">Q7</th>
+          <th scope="col">Q8</th>
+          <th scope="col">Q9</th>
+          <th scope="col">Q10</th>
+          <th scope="col">Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{result1}}</th>
+          <td>{{result2}}</td>
+          <td>{{result3}}</td>
+          <td>{{result4}}</td>
+          <td>{{result5}}</td>
+          <td>{{result6}}</td>
+          <td>{{result7}}</td>
+          <td>{{result8}}</td>
+          <td>{{result9}}</td>
+          <td>{{result10}}</td>
+          <td>{{marks}}</td>
+        </tr>
+      </tbody>
+    </table>
     <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
           width: 320px;
           height: 35px;
@@ -305,6 +338,8 @@
           color: white;
           font-size: 18px;
         ">Logout</a>
+
+       
   </div>
 
   {% else %}

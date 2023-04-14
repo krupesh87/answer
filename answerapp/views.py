@@ -30,6 +30,16 @@ def Home(request):
         text9 = ""
         text10 = ""
         marks = ""
+        result1 = ""
+        result2 = ""
+        result3 = ""
+        result4 = ""
+        result5 = ""
+        result6 = ""
+        result7 = ""
+        result8 = ""
+        result9 = ""
+        result10 = ""
         
         if request.method == 'POST':   
             dplantsimage = request.POST.get('plantsimage')
@@ -82,24 +92,32 @@ def Home(request):
                  result9=SequenceMatcher(None, dat.answer9, answer9).ratio()
                  result10=SequenceMatcher(None, dat.answer10, answer10).ratio()
                  marks=math.ceil((result1+result2+result3+result4+result5+result6+result7+result8+result9+result10)*100/5)
-                 print(marks)           
+                 resultsmain=StudentResult(username=request.user,answer1=result1,answer2=result2,answer3=result3,answer4=result4,answer5=result5,answer6=result6,answer7=result7,answer8=result8,answer9=result9,answer10=result10,Result=marks)
+                 resultsmain.save()        
             
             messages.add_message(request, messages.SUCCESS,
                                  "successfull ")
-        return render(request,'home.html',{'data':data, 'text1':text1, 'text2':text2, 'text3':text3, 'text4':text4, 'text5':text5, 'text6':text6,'text7':text7,'text8':text8,'text9':text9,'text10':text10,'marks':marks})
+        return render(request,'home.html',{'data':data, 'text1':text1, 'text2':text2, 'text3':text3, 'text4':text4, 'text5':text5, 'text6':text6,'text7':text7,'text8':text8,'text9':text9,'text10':text10,'marks':marks, 'result1': result1, 'result2': result2, 'result3': result3, 'result4': result4, 'result5': result5, 'result6': result6, 'result7': result7, 'result8': result8, 'result9': result9, 'result10': result10})
     
 
-    return redirect('login') 
-    
+    return redirect('login')
+
 def signup(request):
     if request.user.is_authenticated:
         return redirect('home') 
     if request.method == 'POST':
         form = SignupForm(request.POST)
+    
+    
         if form.is_valid():
+
             form.save()
             username=form.cleaned_data['username']
             password=form.cleaned_data['password1']
+        
+            users = User.objects.get(username=username)
+    
+        
             user = authenticate(request, username=username, password=password)
             login(request,user)
             

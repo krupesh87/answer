@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class QuestionandAnswer(models.Model):
         # fields of the model
@@ -26,4 +26,20 @@ class QuestionandAnswer(models.Model):
  
         # renames the instances of the model
         # with their title name
- 
+class StudentResult(models.Model):
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    answer1=models.CharField(max_length=500)
+    answer2=models.CharField(max_length=500)
+    answer3=models.CharField(max_length=500)
+    answer4=models.CharField(max_length=500)
+    answer5=models.CharField(max_length=500)  
+    answer6=models.CharField(max_length=500)
+    answer7=models.CharField(max_length=500)
+    answer8=models.CharField(max_length=500)
+    answer9=models.CharField(max_length=500)
+    answer10=models.CharField(max_length=500)
+    Result=models.CharField(max_length=500)
+
+
+
+   
