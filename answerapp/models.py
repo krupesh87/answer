@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 # Create your models here.
 class QuestionandAnswer(models.Model):
         # fields of the model
@@ -28,6 +30,7 @@ class QuestionandAnswer(models.Model):
         # with their title name
 class StudentResult(models.Model):
     username = models.ForeignKey(User,on_delete=models.CASCADE)
+    rollno=models.IntegerField()
     answer1=models.CharField(max_length=500)
     answer2=models.CharField(max_length=500)
     answer3=models.CharField(max_length=500)
@@ -39,6 +42,13 @@ class StudentResult(models.Model):
     answer9=models.CharField(max_length=500)
     answer10=models.CharField(max_length=500)
     Result=models.CharField(max_length=500)
+    rollno = models.PositiveIntegerField()
+    def __str__(self):
+        return str(self.rollno)
+    
+
+
+ 
 
 
 

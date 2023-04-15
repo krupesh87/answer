@@ -24,19 +24,20 @@
       <strong>Message</strong> {{message}}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    {% if marks is not none %}
+    <!-- {% if marks  %}
     <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
       <strong>Result is </strong> {{marks}}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
+    {% endif %} -->
+    {% endfor %}
     {% endif %}
-    {% endfor %} {% endif %}
 
   </div>
-  <div class="container  mt-5  dflex justify-content-center">
+  <div class="container  mt-5   dflex justify-content-center">
 
-    
+
 
 
     <form method="POST">
@@ -46,113 +47,124 @@
 
         <h1 class="text-center">ANSWER CHECKER WEBSITE</h1>
         <br>
-        <div class="col-sm-8 mx-5 mt-4">
-          <h4>{{data.question1}}</h4>
-        </div>
+
       </div>
       <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage" class="form-control" id="FormControl2">
-        </div>
+
       </div>
 
-
-
-      <div class="mb-3 row">
-
-        <div class="col mx-5 mt-4">
-          <textarea name="answer1" rows="10" placeholder="Answer" class="form-control">{{text1}}</textarea>
-        </div>
+      <div class="col-sm-8 mx-5 mt-4">
+        <h4>Roll No</h4>
       </div>
-      <div class="mb-3 row">
+  
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question2}}</h4>
-        </div>
+    <div class="col mx-5 mt-4">
+      <input type="number"  name="rollno" class="form-control" id="FormControl2">
+    </div>
+  </div>
+      <div class="col-sm-8 mx-5 mt-4">
+        <h4>{{data.question1}}</h4>
       </div>
-      <div class="mb-3 row">
+  
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage1" class="form-control" id="FormControl2">
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage" class="form-control" id="FormControl2">
+    </div>
+  </div>
 
 
 
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <textarea name="answer2" rows="10" placeholder="Answer" class="form-control">{{text2}}</textarea>
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <textarea name="answer1" rows="10" placeholder="Answer" class="form-control">{{text1}}</textarea>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
-      <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question2}}</h4>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question3}}</h4>
-        </div>
-      </div>
-      <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage1" class="form-control" id="FormControl2">
+    </div>
+  </div>
 
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage2" class="form-control" id="FormControl2">
-        </div>
-      </div>
 
 
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <textarea name="answer3" rows="10" placeholder="Answer" class="form-control">{{text3}}</textarea>
-        </div>
-      </div>
-      <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer2" rows="10" placeholder="Answer" class="form-control">{{text2}}</textarea>
+    </div>
+  </div>
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question4}}</h4>
-        </div>
-      </div>
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage3" class="form-control" id="FormControl2">
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question3}}</h4>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage2" class="form-control" id="FormControl2">
+    </div>
+  </div>
 
 
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <textarea name="answer4" rows="10" placeholder="Answer" class="form-control">{{text4}}</textarea>
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <textarea name="answer3" rows="10" placeholder="Answer" class="form-control">{{text3}}</textarea>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question4}}</h4>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
-      <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage3" class="form-control" id="FormControl2">
+    </div>
+  </div>
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question5}}</h4>
-        </div>
-      </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage4" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer5" rows="10" placeholder="Answer" class="form-control">{{text5}}</textarea>
-        </div>
-      </div>
 
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <textarea name="answer4" rows="10" placeholder="Answer" class="form-control">{{text4}}</textarea>
+    </div>
+  </div>
 
 
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question5}}</h4>
+    </div>
+  </div>
 
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage4" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer5" rows="10" placeholder="Answer" class="form-control">{{text5}}</textarea>
+    </div>
+  </div>
 
 
 
@@ -171,108 +183,105 @@
 
 
 
-      <div class="mb-3 row">
-
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question6}}</h4>
-        </div>
-      </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage5" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer6" rows="10" placeholder="Answer" class="form-control">{{text6}}</textarea>
-        </div>
-      </div>
-      <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question7}}</h4>
-        </div>
-      </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage6" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer7" rows="10" placeholder="Answer" class="form-control">{{text7}}</textarea>
-        </div>
-      </div>
 
 
 
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question8}}</h4>
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question6}}</h4>
+    </div>
+  </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage7" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer8" rows="10" placeholder="Answer" class="form-control">{{text8}}</textarea>
-        </div>
-      </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage5" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer6" rows="10" placeholder="Answer" class="form-control">{{text6}}</textarea>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question7}}</h4>
+    </div>
+  </div>
 
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage6" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer7" rows="10" placeholder="Answer" class="form-control">{{text7}}</textarea>
+    </div>
+  </div>
 
 
 
-      <div class="mb-3 row">
+  <div class="mb-3 row">
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question9}}</h4>
-        </div>
-      </div>
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question8}}</h4>
+    </div>
+  </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage8" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer9" rows="10" placeholder="Answer" class="form-control">{{text9}}</textarea>
-        </div>
-      </div>
-      <div class="mb-3 row">
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage7" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer8" rows="10" placeholder="Answer" class="form-control">{{text8}}</textarea>
+    </div>
+  </div>
 
-        <div class="col mx-5 mt-4">
-          <h4>{{data.question10}}</h4>
-        </div>
-      </div>
 
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <input type="file" accept="image/*" name="plantsimage9" class="form-control" id="FormControl2">
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <div class="col mx-5 mt-4">
-          <textarea name="answer10" rows="10" placeholder="Answer" class="form-control">{{text10}}</textarea>
-        </div>
-      </div>
 
 
-      
 
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question9}}</h4>
+    </div>
+  </div>
 
-      
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage8" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer9" rows="10" placeholder="Answer" class="form-control">{{text9}}</textarea>
+    </div>
+  </div>
+  <div class="mb-3 row">
 
+    <div class="col mx-5 mt-4">
+      <h4>{{data.question10}}</h4>
+    </div>
+  </div>
 
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <input type="file" accept="image/*" name="plantsimage9" class="form-control" id="FormControl2">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <div class="col mx-5 mt-4">
+      <textarea name="answer10" rows="10" placeholder="Answer" class="form-control">{{text10}}</textarea>
+    </div>
+  </div>
 
 
 
@@ -285,7 +294,16 @@
 
 
 
-      <input type="submit" class=" mx-5" rounded style="
+
+
+
+
+
+
+
+
+
+  <input type="submit" class=" mx-5" rounded style="
             width: 320px;
             height: 35px;
             margin-top: 20px;
@@ -294,41 +312,7 @@
             color: white;
             font-size: 18px;
           " class="sign" value="Generate OCR Text" />
-      {% endif %}
-    </form>
-    <table class="table mx-5 mt-2">
-      <thead>
-        <tr>
-          <th scope="col">Q1</th>
-          <th scope="col">Q2</th>
-          <th scope="col">Q3</th>
-          <th scope="col">Q4</th>
-          <th scope="col">Q5</th>
-          <th scope="col">Q6</th>
-          <th scope="col">Q7</th>
-          <th scope="col">Q8</th>
-          <th scope="col">Q9</th>
-          <th scope="col">Q10</th>
-          <th scope="col">Marks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">{{result1}}</th>
-          <td>{{result2}}</td>
-          <td>{{result3}}</td>
-          <td>{{result4}}</td>
-          <td>{{result5}}</td>
-          <td>{{result6}}</td>
-          <td>{{result7}}</td>
-          <td>{{result8}}</td>
-          <td>{{result9}}</td>
-          <td>{{result10}}</td>
-          <td>{{marks}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
+  <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
           width: 320px;
           height: 35px;
           margin-top: 20px;
@@ -338,13 +322,67 @@
           color: white;
           font-size: 18px;
         ">Logout</a>
+  {% endif %}
+  </form>
 
-       
+
+
+  {% if dataw %}
+  <h1 class="text-center">ANSWER CHECKER WEBSITE</h1>
+  <h5 class="text-center mt-5">MarkSheet of {{request.user}}</h5>
+
+  <table class="table mx-5 mt-2">
+    <thead>
+      <tr>
+        <th scope="col">Q1</th>
+        <th scope="col">Q2</th>
+        <th scope="col">Q3</th>
+        <th scope="col">Q4</th>
+        <th scope="col">Q5</th>
+        <th scope="col">Q6</th>
+        <th scope="col">Q7</th>
+        <th scope="col">Q8</th>
+        <th scope="col">Q9</th>
+        <th scope="col">Q10</th>
+        <th scope="col">Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{dataw.answer1}}</td>
+        <td>{{dataw.answer2}}</td>
+        <td>{{dataw.answer3}}</td>
+        <td>{{dataw.answer4}}</td>
+        <td>{{dataw.answer5}}</td>
+        <td>{{dataw.answer6}}</td>
+        <td>{{dataw.answer7}}</td>
+        <td>{{dataw.answer8}}</td>
+        <td>{{dataw.answer9}}</td>
+        <td>{{dataw.answer10}}</td>
+        <td>{{dataw.Result}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    margin-bottom: 12px;
+  
+    color: white;
+    font-size: 18px;
+  ">Logout</a>
+
+
   </div>
 
+  {% endif %}
   {% else %}
   <a href="/">login</a>
   {% endif %}
+</div>
+
 </body>
 
 </html>

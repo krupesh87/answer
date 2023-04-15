@@ -6,10 +6,10 @@ body {
 }
 
 .register {
-  width: 360px;
+  width: 460px;
   height: 820px;
   margin: auto;
-  background-color:rgba(39, 38, 38, 0.5);
+  background-color: rgba(39, 38, 38, -0.5);
   border-radius: 3px;
   color: white;
 }
