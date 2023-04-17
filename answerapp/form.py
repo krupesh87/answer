@@ -25,15 +25,13 @@ class SignupForm(UserCreationForm):
     last_name  = forms.CharField(max_length=30, required=True,widget=forms.TextInput(attrs={
         "placeholder":"Last Name"
     }))
-    rollno=forms.IntegerField(widget=forms.TextInput(attrs={
-        "placeholder":"Roll No"
-    }))
+
    
    
   
     class Meta:
         model=User
-        fields = UserCreationForm.Meta.fields + ('username','email','password1','password2','first_name','last_name','rollno')
+        fields = UserCreationForm.Meta.fields + ('username','email','password1','password2','first_name','last_name')
         widgets = {
             'username' : forms.TextInput(attrs = {'placeholder': 'Username'}),
          

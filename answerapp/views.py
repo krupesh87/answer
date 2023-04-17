@@ -133,22 +133,20 @@ def signup(request):
         if form.is_valid():
             
             form.save()
-            cd = form.cleaned_data
+            
             username=form.cleaned_data['username']
             password=form.cleaned_data['password1']
            
-            rollno = form.cleaned_data["rollno"]
+    
             users = User.objects.get(username=username)
-            if users:
-                rol=UserProfile(user=users,rollno=rollno)
-                rol.save()
+       
                
     
         
             
-                user = authenticate(request, username=username, password=password)
-                login(request,user)
-                messages.add_message(request, messages.SUCCESS,
+            user = authenticate(request, username=username, password=password)
+            login(request,user)
+            messages.add_message(request, messages.SUCCESS,
                                  "Logged in successfull ")
             
             return redirect('/')
