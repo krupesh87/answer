@@ -30,9 +30,12 @@ class QuestionandAnswer(models.Model):
         return str(self.subject)
  
         # renames the instances of the model
+  
         # with their title name
+        
 class StudentResult(models.Model):
     username = models.ForeignKey(User,on_delete=models.CASCADE)
+    subject=models.CharField(max_length=120,null=False)
     rollno=models.IntegerField()
     answer1=models.CharField(max_length=500)
     answer2=models.CharField(max_length=500)
