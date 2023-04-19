@@ -1,5 +1,5 @@
 body {
-  background-image: url("background.jpg");
+  background-image: url('Register.jpg');
   background-size: cover;
   font-family: "Roboto", sans-serif;
   padding: 50px;
@@ -25,7 +25,7 @@ h4 {
   text-align: center;
 }
 form {
-  width: 300px;
+  width: 100%;
   margin-left: 20px;
 }
 
@@ -44,7 +44,7 @@ form input {
 }
 
 input[type="button"] {
-  width: 320px;
+  width: 100%;
   height: 35px;
   margin-top: 20px;
   border: none;

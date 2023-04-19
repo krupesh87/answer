@@ -1,8 +1,8 @@
 body
 {
-background-image:url('background.jpg');
+background-image:url('Register.jpg');
 
-/* background-size:cover; */
+background-size:cover;
 font-family:'Roboto',sans-serif;
 padding:100px;
 margin:0;
@@ -36,12 +36,17 @@ display:flex;
 margin-top:20px;
 font-size:18px;
 }
+
+input:-moz-placeholder {
+   color: white;
+}
 form input
 {
 width:100%;
 padding:7px;
 border:none;
-border:3px solid gray;
+color: aliceblue;
+border:1px solid rgba(18, 17, 17, 0.317);
 border-radius:6px;
 background: none;
 outline:none;

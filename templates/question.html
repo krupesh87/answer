@@ -15,15 +15,22 @@
     crossorigin="anonymous"></script>
 </head>
 <style>
+  table {
+  border-spacing: 30px;
+}
       body {
-    background-image: url('../static/background.jpg');
+    background-image: url('../static/bghome.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
   .form-control::-webkit-input-placeholder {
   color: white;
 }
 </style>
 <body>
-    <div class="container  mt-5   dflex justify-content-center">
+    <div class="container  mt-5   dflex justify-content-center w-100">
         <h1 class="text-center text-white bg-transparent"> Welcome {{request.user}}</h1>
 
         {% if messages %} {% for message in messages %}
@@ -89,11 +96,11 @@
     {% endif %}
 
     
-    <h5 class="text-center text-white mt-5">MarkSheet of {{request.user}}</h5>
+    <h5 class="text-center text-white  mt-5">MarkSheet of {{request.user}}</h5>
     
-    <table class="table mx-5 mt-2 table-responsive text-white">
-      <thead>
-        <tr>
+    <table class="table mx-3 mt-2 p-3  ">
+      <thead class="mb-3">
+        <tr class="text-white table-dark ">
           <th scope="col"> Username</th>
           <th scope="col"> Subject Name</th>
           <th scope="col"> Roll No</th>
@@ -107,12 +114,12 @@
           <th scope="col">Q8</th>
           <th scope="col">Q9</th>
           <th scope="col">Q10</th>
-          <th scope="col">Marks</th>
+          <th scope="col" >Marks</th>
         </tr>
       </thead>
       <tbody>
         {% for dataw in dataw %}
-        <tr>
+        <tr class="table-success mt-1">
          
           <td>{{dataw.username}}</td>
           <td>{{dataw.subject}}</td>
@@ -134,8 +141,11 @@
       </tbody>
     </table>
    
-        <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-info" 
+        <a href="logout" class="text-center btn w-25 mb-3 mx-5 mt-2 dflex justify-content-start btn-info" 
    >Logout</a>
+      </div>
+      <div class="row mb-5">
+
       </div>
 </body>
 </html>
