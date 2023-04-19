@@ -20,21 +20,30 @@ def Logout(request):
 @login_required(login_url='/')
 def Question(request):
     subjects=QuestionandAnswer.objects.all()
+    Resultmain=StudentResult.objects.filter(username=request.user)
+    print(Resultmain)
+    
     if request.method=='POST':
         rollno=request.POST.get('rollno')
         subjects=request.POST.get('subjects')
         request.session['subje']=subjects
         request.session['rollnos']=rollno
         return redirect('/home')
-    return render(request, 'question.html',{'subj':subjects})
+    return render(request, 'question.html',{'subj':subjects,"dataw":Resultmain})
 
 
 @login_required(login_url='/')
 def Home(request):
+
     if request.session.is_empty():
         return redirect('/question')
     rollno=request.session['rollnos']
     subjects=request.session['subje']
+    main=StudentResult.objects.filter(username=request.user,rollno=rollno,subject=subjects).first()
+    if main:
+         messages.add_message(request, messages.SUCCESS,
+                                     "Exam is completed and please check the result")
+         return redirect('/question')
     print("subjects",request.session.is_empty())
     data=QuestionandAnswer.objects.filter(subject=subjects).first()
     
@@ -89,30 +98,30 @@ def Home(request):
             answer8 = request.POST.get('answer8')
             answer9 = request.POST.get('answer9')
             answer10 = request.POST.get('answer10')
-            print("date",answer1)
-            if dplantsimage:
-                text1 = pytesseract.image_to_string(dplantsimage)
-            if dplantsimage1:
-                text2 = pytesseract.image_to_string(dplantsimage1)
-            if dplantsimage2:
-                text3 = pytesseract.image_to_string(dplantsimage2)
-            if dplantsimage3:
-                text4 = pytesseract.image_to_string(dplantsimage3)
-            if dplantsimage4:
-                text5 = pytesseract.image_to_string(dplantsimage4)
-            if dplantsimage5:
-                text6 = pytesseract.image_to_string(dplantsimage5)
-            if dplantsimage6:
-                text7 = pytesseract.image_to_string(dplantsimage6)
-            if dplantsimage7:
-                text8 = pytesseract.image_to_string(dplantsimage7)
-            if dplantsimage8:
-                text9 = pytesseract.image_to_string(dplantsimage8)
-            if dplantsimage9:
-                text10 = pytesseract.image_to_string(dplantsimage9)
-
-            
-    
+            btnw = request.POST.get('su')
+            print("date",btnw)
+            if btnw=='Generate OCR Text':
+                if dplantsimage:
+                    text1 = pytesseract.image_to_string(dplantsimage)
+                if dplantsimage1:
+                    text2 = pytesseract.image_to_string(dplantsimage1)
+                if dplantsimage2:
+                    text3 = pytesseract.image_to_string(dplantsimage2)
+                if dplantsimage3:
+                    text4 = pytesseract.image_to_string(dplantsimage3)
+                if dplantsimage4:
+                    text5 = pytesseract.image_to_string(dplantsimage4)
+                if dplantsimage5:
+                    text6 = pytesseract.image_to_string(dplantsimage5)
+                if dplantsimage6:
+                    text7 = pytesseract.image_to_string(dplantsimage6)
+                if dplantsimage7:
+                    text8 = pytesseract.image_to_string(dplantsimage7)
+                if dplantsimage8:
+                    text9 = pytesseract.image_to_string(dplantsimage8)
+                if dplantsimage9:
+                    text10 = pytesseract.image_to_string(dplantsimage9)
+ 
 
             dat = QuestionandAnswer.objects.filter(subject=subjects).first()
          

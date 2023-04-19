@@ -33,13 +33,7 @@
       <strong>Message</strong> {{message}}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <!-- {% if marks  %}
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-      <strong>Result is </strong> {{marks}}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-
-    {% endif %} -->
+ 
     {% endfor %}
     {% endif %}
 
@@ -330,7 +324,9 @@
             background-color: #0078aa;
             color: white;
             font-size: 18px;
-          " class="sign" value="Generate OCR Text" />
+          " class="sign" name="su" value="Generate OCR Text" />
+            <input type="submit" class=" mx-5 w-25 btn btn-success" rounded
+            value="Generate Marks" />
       <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
           width: 320px;
           height: 35px;
@@ -341,62 +337,16 @@
           color: white;
           font-size: 18px;
         ">Logout</a>
+
+        
       {% endif %} 
     </form>
 
 
 
-    {% if dataw %}
-    <h1 class="text-center">ANSWER CHECKER WEBSITE</h1>
-    <h5 class="text-center mt-5">MarkSheet of {{request.user}}</h5>
 
-    <table class="table mx-5 mt-2">
-      <thead>
-        <tr>
-          <th scope="col">Q1</th>
-          <th scope="col">Q2</th>
-          <th scope="col">Q3</th>
-          <th scope="col">Q4</th>
-          <th scope="col">Q5</th>
-          <th scope="col">Q6</th>
-          <th scope="col">Q7</th>
-          <th scope="col">Q8</th>
-          <th scope="col">Q9</th>
-          <th scope="col">Q10</th>
-          <th scope="col">Marks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{dataw.answer1}}</td>
-          <td>{{dataw.answer2}}</td>
-          <td>{{dataw.answer3}}</td>
-          <td>{{dataw.answer4}}</td>
-          <td>{{dataw.answer5}}</td>
-          <td>{{dataw.answer6}}</td>
-          <td>{{dataw.answer7}}</td>
-          <td>{{dataw.answer8}}</td>
-          <td>{{dataw.answer9}}</td>
-          <td>{{dataw.answer10}}</td>
-          <td>{{dataw.Result}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-success" style="
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    border: none;
-    margin-bottom: 12px;
-  
-    color: white;
-    font-size: 18px;
-  ">Logout</a>
+    
 
-
-  </div>
-
-  {% endif %}
   {% else %}
   <a href="/">login</a>
   {% endif %}

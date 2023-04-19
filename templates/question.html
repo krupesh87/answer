@@ -26,7 +26,15 @@
     <div class="container  mt-5   dflex justify-content-center">
         <h1 class="text-center text-white bg-transparent"> Welcome {{request.user}}</h1>
 
-
+        {% if messages %} {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+          <strong>Message</strong> {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+     
+        {% endfor %}
+        {% endif %}
+    
         {% if subj %}
         <form method="POST">
           {% csrf_token %}
@@ -79,7 +87,53 @@
         Question Paper is not set yet.
       </div>
     {% endif %}
+
     
+    <h5 class="text-center text-white mt-5">MarkSheet of {{request.user}}</h5>
+    
+    <table class="table mx-5 mt-2 table-responsive text-white">
+      <thead>
+        <tr>
+          <th scope="col"> Username</th>
+          <th scope="col"> Subject Name</th>
+          <th scope="col"> Roll No</th>
+          <th scope="col">Q1</th>
+          <th scope="col">Q2</th>
+          <th scope="col">Q3</th>
+          <th scope="col">Q4</th>
+          <th scope="col">Q5</th>
+          <th scope="col">Q6</th>
+          <th scope="col">Q7</th>
+          <th scope="col">Q8</th>
+          <th scope="col">Q9</th>
+          <th scope="col">Q10</th>
+          <th scope="col">Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dataw in dataw %}
+        <tr>
+         
+          <td>{{dataw.username}}</td>
+          <td>{{dataw.subject}}</td>
+          <td>{{dataw.rollno}}</td>
+          <td>{{dataw.answer1}}</td>
+          <td>{{dataw.answer2}}</td>
+          <td>{{dataw.answer3}}</td>
+          <td>{{dataw.answer4}}</td>
+          <td>{{dataw.answer5}}</td>
+          <td>{{dataw.answer6}}</td>
+          <td>{{dataw.answer7}}</td>
+          <td>{{dataw.answer8}}</td>
+          <td>{{dataw.answer9}}</td>
+          <td>{{dataw.answer10}}</td>
+          <td>{{dataw.Result}}</td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   
         <a href="logout" class="text-center btn w-25  mx-5 mt-2 dflex justify-content-start btn-info" 
    >Logout</a>
       </div>
