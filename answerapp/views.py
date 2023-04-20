@@ -8,6 +8,7 @@ from .form import SignupForm
 from .models import *
 import math
 from difflib import SequenceMatcher
+from django.contrib.sessions.models import Session 
 # Create your views here.
 import pytesseract
 
@@ -130,31 +131,32 @@ def Home(request):
             if (answer1 or answer2 or answer3 or answer4 or answer5 or answer6 or answer7 or answer8 or answer9 or answer10):
                 print("if condition")
                 result1 = round(SequenceMatcher(
-                    None, dat.answer1, answer1).ratio(), 3)
+                    None, dat.answer1, answer1).ratio(), 3)*10
                 result2 = round(SequenceMatcher(
-                    None, dat.answer2, answer2).ratio(), 3)
+                    None, dat.answer2, answer2).ratio(), 3)*10
                 result3 = round(SequenceMatcher(
-                    None, dat.answer3, answer3).ratio(), 3)
+                    None, dat.answer3, answer3).ratio(), 3)*10
                 result4 = round(SequenceMatcher(
-                    None, dat.answer4, answer4).ratio(), 3)
+                    None, dat.answer4, answer4).ratio(), 3)*10
                 result5 = round(SequenceMatcher(
-                    None, dat.answer5, answer5).ratio(), 3)
+                    None, dat.answer5, answer5).ratio(), 3)*10
                 result6 = round(SequenceMatcher(
-                    None, dat.answer6, answer6).ratio(), 3)
-                result7 = (
-                    round((SequenceMatcher(None, dat.answer7, answer7).ratio()), 3))
+                    None, dat.answer6, answer6).ratio(), 3)*10
+                result7 = round((SequenceMatcher(None, dat.answer7, answer7).ratio()), 3)*10
                 result8 = round(SequenceMatcher(
-                    None, dat.answer8, answer8).ratio(), 3)
+                    None, dat.answer8, answer8).ratio(), 3)*10
                 result9 = round(SequenceMatcher(
-                    None, dat.answer9, answer9).ratio(), 3)
+                    None, dat.answer9, answer9).ratio(), 2)*10
                 result10 = round(SequenceMatcher(
-                    None, dat.answer10, answer10).ratio(), 3)
+                    None, dat.answer10, answer10).ratio(), 3)*10
                 marks = math.floor((result1+result2+result3+result4 +
-                                   result5+result6+result7+result8+result9+result10)*100/10)
+                                   result5+result6+result7+result8+result9+result10)*10)
 
                 resultsmain = StudentResult(username=request.user,subject=subjects, rollno=rollno, answer1=result1, answer2=result2, answer3=result3, answer4=result4,
                                             answer5=result5, answer6=result6, answer7=result7, answer8=result8, answer9=result9, answer10=result10, Result=marks)
                 resultsmain.save()
+                del request.session['rollnos']
+                del request.session['subje']
 
                 messages.add_message(request, messages.SUCCESS,
                                      "successfull ")
